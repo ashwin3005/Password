@@ -31,4 +31,4 @@ random.shuffle(password)
 
 password = ''.join([str(elem) for elem in password])
   
-print(password) 
+print(password)      # print the password
