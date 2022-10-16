@@ -1,34 +1,40 @@
 import random
 
-# reading w.txt
+# Choosing one random word
 with open('w.txt') as f:
     words = [line.rstrip() for line in f]
+random_word = random.sample(words, 1)    # Choose one random word
 
-
+# Symbols, Alphabet, Number
 symbols = '!@#$%&<>?'
-alpha = 'abcdefghijklmnopqrstuvwxyz'
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
 num = '1234567890'
 
-random_word = random.sample(words, 1)    #list
+randomWord = random_word[0]
+number = random.choice(list(num))
+alpha = random.choice(list(alphabet))
+symbols = random.choice(list(symbols))
 
-
-a = random_word[0]
-b = random.choice(list(num))
-c = random.choice(list(alpha))
-d = random.choice(list(symbols))
-
+# randomWord LowerCase or UpperCase
 coin = random.randint(0,1)     # flipping a coin
-
 password = []
 
+if coin == 1:
+    password.extend([randomWord.upper()])
+else:
+    password.extend([randomWord])
+
+# alpha LowerCase or UpperCase
+coin = random.randint(0,1)     # flipping a coin
 
 if coin == 1:
-    password.extend([a.upper(),b,c,d])
+    password.extend([number,alpha.upper(),symbols])
 else:
-    password.extend([a,b,c.upper(),d])
+    password.extend([number,alpha,symbols])
 
+# Shuffle Order
 random.shuffle(password)
 
 password = ''.join([str(elem) for elem in password])
-  
+
 print(password)      # print the password
