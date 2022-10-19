@@ -10,4 +10,4 @@ use_for= lower_case+upper_case+number+symbols
 length_for_password = 12
 password = "".join(random.sample(use_for,length_for_password))
 
-print("your Generated Password is : "+password)
+print("Your Generated Password Is : "+password)
